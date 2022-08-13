@@ -1,0 +1,30 @@
+.input-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 30px 0px;
+	width: 100%;
+	padding: 50px 0px;
+}
+
+.image-container{
+	width: 244px;
+	height: 244px;
+	border: 2px solid white;
+	margin: 0px auto;
+}
+
+.image-container img{
+	width: 244px;
+	height: 244px;
+}
+
+.image-detail{
+	display: flex;
+	flex-direction: column;
+	gap: 10px 0px;
+	margin: 0px auto;
+	font-size: 20px;
+	color: white;
+}
