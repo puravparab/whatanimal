@@ -1,0 +1,8 @@
+.base{
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	max-width: 1400px;
+	width: 90%;
+	min-height: 100%;
+}
