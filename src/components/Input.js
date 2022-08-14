@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Resizer from "react-image-file-resizer";
 
-import logo from '../assets/images/android-chrome-512x512.png'
+import logo from '../assets/images/default_cat.png'
 import '../styles/components/input.css'
 
 const Input = () => {
@@ -11,8 +11,23 @@ const Input = () => {
 		setInputImage(logo)
 	}, [])
 
-	const imageHandler = (e) => {
-		setInputImage(URL.createObjectURL(e.target.files[0]))
+	const resizeFile = (file) => 
+		new Promise((resolve) => {
+			Resizer.imageFileResizer(file, 244, 244, "JPEG", 100, 0, 
+				(uri) => {
+					resolve(uri);
+				}, "blob", 244, 244
+			);
+		});
+
+	const imageHandler = async (e) => {
+		try{
+			const file = e.target.files[0]
+			const image = await resizeFile(file)
+			setInputImage(URL.createObjectURL(image))
+		} catch(err){
+			console.log(err)
+		}
 	}
 
 	return (
