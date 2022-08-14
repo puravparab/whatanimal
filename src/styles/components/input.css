@@ -15,7 +15,7 @@
 .image-container img{
 	width: 244px;
 	height: 244px;
-	border: 2px solid white;
+	border: 2px solid rgb(192, 137, 255);;
 }
 
 .image-detail{
@@ -24,5 +24,17 @@
 	gap: 10px 0px;
 	margin: 0px auto;
 	font-size: 20px;
+	font-family: monospace;
 	color: white;
+}
+
+.image-detail .analyze-btn{
+	width: 50%;
+	min-width: 160px;
+	margin: 20px auto;
+	padding: 7px 0px;
+	font-size: 20px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
 }

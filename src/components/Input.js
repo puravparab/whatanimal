@@ -11,6 +11,7 @@ const Input = () => {
 		setInputImage(logo)
 	}, [])
 
+	// Resize image to 244px x 244 px
 	const resizeFile = (file) => 
 		new Promise((resolve) => {
 			Resizer.imageFileResizer(file, 244, 244, "JPEG", 100, 0, 
@@ -20,6 +21,7 @@ const Input = () => {
 			);
 		});
 
+	// Process user uploaded image
 	const imageHandler = async (e) => {
 		try{
 			const file = e.target.files[0]
@@ -28,6 +30,11 @@ const Input = () => {
 		} catch(err){
 			console.log(err)
 		}
+	}
+
+	// Send the image to server to be analyzed
+	const analyzeImage = () => {
+		console.log("btn pressed")
 	}
 
 	return (
@@ -40,6 +47,9 @@ const Input = () => {
 				<input type="file" id="image-input" name="input-image" accept="image/*" 
 					onChange={imageHandler}
 				/>
+				<button className="analyze-btn" type="submit" onChange={analyzeImage}>
+				Analyze
+				</button>
 			</div>
 		</div>
 	)
