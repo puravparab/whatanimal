@@ -9,15 +9,13 @@
 }
 
 .image-container{
-	width: 244px;
-	height: 244px;
-	border: 2px solid white;
 	margin: 0px auto;
 }
 
 .image-container img{
 	width: 244px;
 	height: 244px;
+	border: 2px solid white;
 }
 
 .image-detail{
