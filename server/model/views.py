@@ -10,4 +10,7 @@ def get_image(request):
 	data = request.data
 	image = data.get("image")
 
-	return Response({"message": "succesful"}, status=status.HTTP_200_OK)
+	return Response({
+		"message": "succesful",
+		"animal_name": "cat"
+		}, status=status.HTTP_200_OK)

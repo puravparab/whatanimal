@@ -28,6 +28,19 @@
 	color: white;
 }
 
+.image-detail .image-name{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0px 0px 30px 0px;
+}
+.image-detail .image-name p{
+	margin: 0px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
 .image-detail .analyze-btn{
 	width: 50%;
 	min-width: 160px;

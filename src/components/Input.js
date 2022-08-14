@@ -8,6 +8,7 @@ const ROOT_URL = window.location.protocol + "//" + window.location.hostname + ":
 
 const Input = () => {
 	const [inputImage, setInputImage] = useState('')
+	const [animalName, setAnimalName] = useState('')
 
 	useEffect(()=>{
 		setInputImage(logo)
@@ -29,6 +30,7 @@ const Input = () => {
 			const file = e.target.files[0]
 			const image = await resizeFile(file)
 			setInputImage(URL.createObjectURL(image))
+			setAnimalName('')
 		} catch(err){
 			console.log(err)
 		}
@@ -51,6 +53,8 @@ const Input = () => {
 
 		if (res.ok){
 			console.log(data)
+			const animal_name = data.animal_name
+			setAnimalName(animal_name)
 		}
 		else{
 			console.log("request failed")
@@ -63,6 +67,11 @@ const Input = () => {
 				<img src={inputImage} alt="user input" />
 			</div>
 			<div className="image-detail">
+				<div className="image-name">
+					{animalName !== ''?
+						<p>This is a {animalName}</p> : ''
+					}
+				</div>
 				<label for="input-image">Add an image of an animal:</label>
 				<input type="file" id="image-input" name="input-image" accept="image/*" 
 					onChange={imageHandler}
