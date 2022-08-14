@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import Resizer from "react-image-file-resizer";
-
+import { getCookie } from '../utilities/getCookie.js'
 import logo from '../assets/images/default_cat.png'
 import '../styles/components/input.css'
+
+const ROOT_URL = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port
 
 const Input = () => {
 	const [inputImage, setInputImage] = useState('')
@@ -33,8 +35,26 @@ const Input = () => {
 	}
 
 	// Send the image to server to be analyzed
-	const analyzeImage = () => {
-		console.log("btn pressed")
+	const analyzeImage = async () => {
+		const formData = new FormData()
+		formData.append('image', inputImage);
+		const res = await fetch(ROOT_URL + '/api/analyze', {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: {
+				"X-CSRFToken": getCookie("csrftoken")
+			},
+			body: formData
+		})
+
+		const data = await res.json()
+
+		if (res.ok){
+			console.log(data)
+		}
+		else{
+			console.log("request failed")
+		}
 	}
 
 	return (
@@ -47,8 +67,8 @@ const Input = () => {
 				<input type="file" id="image-input" name="input-image" accept="image/*" 
 					onChange={imageHandler}
 				/>
-				<button className="analyze-btn" type="submit" onChange={analyzeImage}>
-				Analyze
+				<button className="analyze-btn" type="submit" onClick={analyzeImage} >
+					Analyze
 				</button>
 			</div>
 		</div>
