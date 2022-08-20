@@ -17,5 +17,5 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-	path('analyze', get_image, name='analyze')
+	path('analyze', analyze_image, name='analyze')
 ]

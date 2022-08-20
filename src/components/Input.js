@@ -30,6 +30,7 @@ const Input = () => {
 			const file = e.target.files[0]
 			const image = await resizeFile(file)
 			setInputImage(URL.createObjectURL(image))
+			console.log(URL.createObjectURL(image))
 			setAnimalName('')
 		} catch(err){
 			console.log(err)
@@ -57,6 +58,7 @@ const Input = () => {
 			setAnimalName(animal_name)
 		}
 		else{
+			console.log(data)
 			console.log("request failed")
 		}
 	}
