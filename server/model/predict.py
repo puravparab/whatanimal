@@ -34,7 +34,7 @@ def run_predictions(image_url, image_width, image_height):
 def score_predictions(predictions):
 	no_of_classes = len(predictions)
 	score = {}
-
+	print(np.argmax(predictions))
 	score = {
 		"scoring": [],
 		"prediction_index": np.argmax(predictions),
@@ -45,5 +45,4 @@ def score_predictions(predictions):
 		value = tf.get_static_value(predictions[i]) * 100
 		value = float("{:.2f}".format(value))
 		score["scoring"].append(value)
-
 	return score
