@@ -4,7 +4,7 @@ import numpy as np
 import PIL
 
 def load_image(image_url):
-	image_path = tf.keras.utils.get_file('user_uploaded_image', origin=image_url)
+	image_path = tf.keras.utils.get_file(origin=image_url)
 	return image_path
 
 def create_image_array(image_url, image_width, image_height):

@@ -10,9 +10,7 @@ from .predict import *
 @parser_classes([MultiPartParser])
 def analyze_image(request):
 	data = request.data
-	# image_url = data.get("image")
-	# image_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/592px-Red_sunflower.jpg"
-	image_url = "http://192.168.1.103:8000/static/media/default_cat.4a5b78e35b26b637285d.png"
+	image_url = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Walking_tiger_female.jpg"
 	
 	try:
 		predictions = run_predictions(image_url, 224, 224)

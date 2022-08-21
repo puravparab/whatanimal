@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Resizer from "react-image-file-resizer";
 import { getCookie } from '../utilities/getCookie.js'
 import classes from '../class_names.json';
-import logo from '../assets/images/default_cat.png'
+import logo from '../assets/images/default_cat.jpg'
 import '../styles/components/input.css'
 
 const ROOT_URL = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port
@@ -60,8 +60,6 @@ const Input = () => {
 				})
 			}
 		}
-
-		console.log(score_list)
 	}
 
 	// Send the image to server to be analyzed
@@ -79,7 +77,6 @@ const Input = () => {
 
 		const data = await res.json()
 		console.log(data)
-
 		if (res.ok){
 			processPrediction(data)
 		}
