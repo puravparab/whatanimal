@@ -9,6 +9,7 @@ const ROOT_URL = window.location.protocol + "//" + window.location.hostname + ":
 
 const Input = () => {
 	const [inputImage, setInputImage] = useState('')
+	const [inputImageURL, setInputImageURL] = useState('')
 	const [animalName, setAnimalName] = useState('')
 
 	useEffect(()=>{
@@ -30,8 +31,8 @@ const Input = () => {
 		try{
 			const file = e.target.files[0]
 			const image = await resizeFile(file)
+			setInputImageURL(image)
 			setInputImage(URL.createObjectURL(image))
-			console.log(URL.createObjectURL(image))
 			setAnimalName('')
 		} catch(err){
 			console.log(err)
@@ -42,7 +43,6 @@ const Input = () => {
 	const processPrediction = async (data) => {
 		const scoring = data.details.scoring
 		const prediction_index = data.details.prediction_index
-		console.log(prediction_index)
 		const name = classes.class_names[prediction_index]
 		const common_name = Object.values(name)[0]
 		const sci_name = Object.keys(name)[0]
@@ -65,7 +65,7 @@ const Input = () => {
 	// Send the image to server to be analyzed
 	const analyzeImage = async () => {
 		const formData = new FormData()
-		formData.append('image', inputImage);
+		formData.append('image', inputImageURL)
 		const res = await fetch(ROOT_URL + '/api/analyze', {
 			method: 'POST',
 			credentials: 'same-origin',

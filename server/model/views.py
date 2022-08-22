@@ -11,9 +11,32 @@ from .utils import *
 @parser_classes([MultiPartParser])
 def analyze_image(request):
 	data = request.data
+	headers = request.headers
+	csrftoken = headers.get("X-Csrftoken")
 	image = data.get("image")
-	image_url = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Walking_tiger_female.jpg"
 	
+	if image == '':
+		# Use default picture
+		csrftoken = 'default'
+	else:
+		# Create a user request
+		try:
+			create_user_request(csrftoken, image)
+		except Exception as e:
+			return Response({
+				"message": "error creating user request",
+				"error": str(e)
+			}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+	# Get image url from S3
+	try:
+		image_url = get_image_s3_url(csrftoken)
+	except Exception as e:
+		return Response({
+			"message": "error retrieving image url fromm aws s3",
+			"error": str(e)
+		}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 	try:
 		predictions = run_predictions(image_url, 224, 224)
 	except Exception as e:
@@ -29,6 +52,15 @@ def analyze_image(request):
 			"message": "scoring error", 
 			"error": str(e)
 			}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+	if csrftoken != 'default':
+		try:
+			delete_user_request(csrftoken)
+		except Exception as e:
+			return Response({
+				"message": "error deleting user request", 
+				"error": str(e)
+				}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 	return Response({
 		"message": "analysis succesful",

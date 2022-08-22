@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+# From python-dotenv package
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 
@@ -32,6 +36,9 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
 # Application definition
 
 INSTALLED_APPS = [
+	# Run Whitenoise while debug = False
+	'whitenoise.runserver_nostatic',
+
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
@@ -41,7 +48,10 @@ INSTALLED_APPS = [
 
 	'rest_framework',
 	
-	'model.apps.ModelConfig'
+	'model.apps.ModelConfig',
+
+	 # DJANGO STORAGES
+    "storages",
 ]
 
 MIDDLEWARE = [
