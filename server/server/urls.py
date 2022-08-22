@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 
+from .views import *
+
 urlpatterns = [
 	path('admin/', admin.site.urls),
+	path('csrf/', csrf),
 
 	path('api/', include("model.urls")),
 

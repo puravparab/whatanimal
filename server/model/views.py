@@ -5,11 +5,13 @@ from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework.decorators import api_view, parser_classes
 
 from .predict import *
+from .utils import *
 
 @api_view(["POST"])
 @parser_classes([MultiPartParser])
 def analyze_image(request):
 	data = request.data
+	image = data.get("image")
 	image_url = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Walking_tiger_female.jpg"
 	
 	try:
