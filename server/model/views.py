@@ -16,10 +16,10 @@ def analyze_image(request):
 	image = data.get("image")
 	
 	if image == '':
-		# Use default picture
+		# Use default picture:
 		csrftoken = 'default'
 	else:
-		# Create a user request
+		# Create a user request:
 		try:
 			create_user_request(csrftoken, image)
 		except Exception as e:
@@ -28,7 +28,7 @@ def analyze_image(request):
 				"error": str(e)
 			}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-	# Get image url from S3
+	# Get image url from S3:
 	try:
 		image_url = get_image_s3_url(csrftoken)
 	except Exception as e:
@@ -37,6 +37,7 @@ def analyze_image(request):
 			"error": str(e)
 		}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+	# Run predictions:
 	try:
 		predictions = run_predictions(image_url, 224, 224)
 	except Exception as e:
@@ -45,6 +46,7 @@ def analyze_image(request):
 			"error": str(e)
 			}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+	# Score predictions:
 	try:
 		scoring = score_predictions(predictions)
 	except Exception as e:
@@ -53,6 +55,7 @@ def analyze_image(request):
 			"error": str(e)
 			}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+	# Delete user request
 	if csrftoken != 'default':
 		try:
 			delete_user_request(csrftoken)
