@@ -14,7 +14,7 @@ def analyze_image(request):
 	headers = request.headers
 	csrftoken = headers.get("X-Csrftoken")
 	image = data.get("image")
-	
+
 	if image == '':
 		# Use default picture:
 		csrftoken = 'default'

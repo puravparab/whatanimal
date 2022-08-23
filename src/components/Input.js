@@ -22,7 +22,7 @@ const Input = () => {
 			Resizer.imageFileResizer(file, 244, 244, "JPEG", 100, 0, 
 				(uri) => {
 					resolve(uri);
-				}, "blob", 244, 244
+				}, "file", 244, 244
 			);
 		});
 

@@ -63,3 +63,7 @@
 	border-radius: 20px;
 	cursor: pointer;
 }
+.image-detail .analyze-btn:hover{
+	background: rgb(161, 143, 193);
+	transition: 0.3s;
+}

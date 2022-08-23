@@ -34,7 +34,6 @@ def run_predictions(image_url, image_width, image_height):
 def score_predictions(predictions):
 	no_of_classes = len(predictions)
 	score = {}
-	print(np.argmax(predictions))
 	score = {
 		"scoring": [],
 		"prediction_index": np.argmax(predictions),
