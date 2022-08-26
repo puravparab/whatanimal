@@ -100,7 +100,8 @@ $ python server/manage.py runserver
 ```
 
 ---
-Create a default entry in the PredictionRequests model thorugh the admin panel admin panel
+Create a default entry in the PredictionRequests model thorugh the admin panel
+<br>
 Go to the following url:
 http://192.168.1.103:8000/admin/model/predictionrequests/add/
 ```
