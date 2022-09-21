@@ -38,7 +38,7 @@ $ pip install --user pipenv
 ```
 Install dependencies from Pipfile
 ```
-$ pipenv install
+$ pipenv sync
 ```
 Run the virtual environment
 ```
