@@ -28,7 +28,7 @@ Clone the respository
 ```
 $ git clone https://github.com/puravparab/whatanimal.git
 ```
-Change the working directory to Chattrr
+Change the working directory to Whatanimal
 ```
 $ cd whatanimal
 ```
