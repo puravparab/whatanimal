@@ -20,31 +20,33 @@
 	<a href="#Installation">INSTALLATION</a>
 	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 	<a href="#License">LICENSE</a>
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	<a href="https://github.com/puravparab/animal_classifier">Model</a>
 </p>
 
 # Installation:
 
 Clone the respository
 ```
-$ git clone https://github.com/puravparab/whatanimal.git
+git clone https://github.com/puravparab/whatanimal.git
 ```
 Change the working directory to Whatanimal
 ```
-$ cd whatanimal
+cd whatanimal
 ```
 Install pipenv to your machine
 ```
-$ pip install --user pipenv
-```
-Install dependencies from Pipfile
-```
-$ pipenv sync
+pip install --user pipenv
 ```
 Run the virtual environment
 ```
-$ pipenv shell
+pipenv shell
 ```
-Create  a file called .env and copy contents from .envtemplate into it.
+Install dependencies from Pipfile
+```
+pipenv sync
+```
+Create a file called .env and copy contents from .env.template into it.
 <br>
 Update the entries in the .env file.
 ```
@@ -61,8 +63,8 @@ AWS_S3_FILE_OVERWRITE=False
 ```
 Run the following commands
 ```
-$ python server/manage.py migrate
-$ python server/manage.py collectstatic
+python server/manage.py migrate
+python server/manage.py collectstatic
 ```
 This completes the backend/server configuration.
 
@@ -72,19 +74,19 @@ For the next steps make sure node.js is and npm is installed.
 <br>
 You should have at least the following versions if node and npm ae installed.
 ```
-$ node -v
+node -v
 v16.13.1
 
-$ npm -v
+npm -v
 v8.1.2
 ```
 Install dependencies from package.json
 ```
-$ npm install
+npm ci
 ```
 Run the following command to create a production build
 ```
-$ npm run build
+npm run build
 ```
 This completes the frontend/client configuration.
 
@@ -92,22 +94,22 @@ This completes the frontend/client configuration.
 
 Add a superuser to Django Admin
 ```
-$ python server/manage.py createsuperuser
+python server/manage.py createsuperuser
 ```
 Run the server at http://127.0.0.1:8000 or http://localhost:3000
 ```
-$ python server/manage.py runserver
+python server/manage.py runserver
 ```
 
 ---
 Create a default entry in the PredictionRequests model thorugh the admin panel
 <br>
 Go to the following url:
-<Your-Domain>/admin/model/predictionrequests/add/
+<Your Domain>/admin/model/predictionrequests/add/
 ```
 Add the following into the form:
 User Token = default
-Image = <upload image loacted at 'src/assets/images/default_cat.jpg'>
+Image = <upload image located at 'src/assets/images/default_cat.jpg'>
 ```
 
 ---
