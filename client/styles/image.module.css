@@ -144,3 +144,30 @@
 		width: 300px;
 	}
 }
+
+/* IMAGE PREDICT BUTTON */
+.imageContainer .submitBtn{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0px 0px 0px;
+}
+.imageContainer .submitBtn button{
+	padding: 12px 15px;
+	outline: none;
+	border: none;
+	border-radius: 15px;
+	background: var(--btn-primary);
+	border: 1px solid var(--btn-primary);
+	cursor: pointer;
+}
+.imageContainer .submitBtn button:hover{
+	transition: 0.2s;
+	background: var(--bg-color);
+}
+.imageContainer .submitBtn button span{
+	font-size: 25px;
+	font-weight: 500;
+	color: white;
+}

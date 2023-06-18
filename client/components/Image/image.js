@@ -42,6 +42,10 @@ const Image = () => {
 		}
 	}
 
+	const handleSubmit = () => {
+		console.log("submit")
+	}
+
 	return (
 		<div className={styles.imageContainer}>
 			<div className={styles.imageDisplay}>
@@ -70,6 +74,10 @@ const Image = () => {
 				<diV className={styles.modelOptionsItemContainer}>
 					<span>cnn v1</span>
 				</diV>
+			</div>
+
+			<div className={styles.submitBtn}>
+				<button onClick={handleSubmit}><span>Predict</span></button>
 			</div>
 		</div>
 	)
