@@ -1,3 +1,4 @@
+/* IMAGE DISPLAY */
 .imageContainer{
 	display: flex;
 	flex-direction: column;
@@ -46,6 +47,9 @@
 }
 
 @media (max-width: 900px){
+	.imageContainer{
+		padding: 20px 0px;
+	}
 	.imageDisplay{
 		display: flex;
 		flex-direction: column;
@@ -71,14 +75,16 @@
 	}
 }
 
+/* IMAGE UPLOAD */
+
 .imageUploadContainer{
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 0px 20px;
-	width: 100%;
-	margin: 40px auto;
+	width: 500px;
+	margin: 40px auto 20px auto;
 }
 .imageUploadContainer p{
 	font-size: 20px;
@@ -92,13 +98,49 @@
 	width: 200px;
 }
 
-
 @media (max-width: 900px){
 	.imageUploadContainer{
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		gap: 20px 0px;
+		width: 300px;
+		margin: 20px auto;
+	}
+}
+
+.modelOptions{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0px 20px;
+	margin: 0px auto;
+	width: 500px;
+}
+.modelOptions p{
+	font-size: 20px;
+	color: var(--secondary-text);
+	text-align: center;
+}
+.modelOptionsItemContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.modelOptionsItemContainer span{
+	font-size: 20px;
+	color: var(--special-text);
+	cursor: pointer;
+}
+
+@media (max-width: 900px){
+	.modelOptions{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 5px 0px;
 		width: 300px;
 	}
 }

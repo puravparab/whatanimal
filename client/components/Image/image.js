@@ -4,10 +4,14 @@ import Resizer from "react-image-file-resizer";
 import styles from '../../styles/image.module.css'
 
 const Image = () => {
+	// IMAGE
 	const [image, setImage] = useState('')
 	const image1 = '/assets/images/android-chrome-512x512.png'
 	const image2 = '/assets/images/tiger.jpg'
 	const image3 = '/assets/images/panda.jpg'
+
+	// MODEL
+	const [model, setMode] = useState('cnn-v1')
 
 	useEffect(() => {
 		setImage(image1)
@@ -59,6 +63,13 @@ const Image = () => {
 					type="file" id="image-input" name="input-image" accept="image/*"
 					onChange={handleImageUpload}
 				/>
+			</div>
+
+			<div className={styles.modelOptions}>
+				<p>Choose your model:</p>
+				<diV className={styles.modelOptionsItemContainer}>
+					<span>cnn v1</span>
+				</diV>
 			</div>
 		</div>
 	)

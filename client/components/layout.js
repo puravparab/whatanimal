@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import Header from './header.js'
+import Footer from './footer.js'
 import styles from '../styles/layout.module.css'
 
 const Layout = ({ children }) => {
@@ -11,6 +12,7 @@ const Layout = ({ children }) => {
 				<div className={styles.pageBodyLayout}>
 					{ children }
 				</div>
+				<Footer />
 			</div>
 		</>
 	)
