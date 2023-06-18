@@ -1,5 +1,8 @@
 import Head from 'next/head'
 
+import Image from '../components/Image/image.js'
+import styles from '../styles/home.module.css'
+
 const Home = () => {
 	return (
 		<>
@@ -19,6 +22,10 @@ const Home = () => {
 				<meta name="twitter:site" content="https://Whatanimal.purav.co" />
 				<meta name="twitter:description" content="Image recognition app for animals" />
 			</Head>
+
+			<div className={styles.homeContainer}>
+				<Image />
+			</div>
 		</>
 	)
 }

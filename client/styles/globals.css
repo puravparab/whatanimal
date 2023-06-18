@@ -1,9 +1,8 @@
 :root {
-	--bg-color: rgb(68, 37, 97);
-	--dark-platform-color: rgb(28, 30, 34);
-	--dark-primary-heading: rgb(244, 96, 62);
+	--bg-color: rgb(43, 51, 83);
 	--primary-text: rgb(255, 255, 255);
-	--dark-secondary-text: rgb(165, 165, 165);
+	--secondary-text: rgb(189, 189, 189);
+	--third-text: rgb(121, 121, 121);
 }
 
 html,

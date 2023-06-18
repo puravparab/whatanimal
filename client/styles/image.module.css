@@ -1,0 +1,104 @@
+.imageContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	flex-direction: center;
+	width: 100%;
+	padding: 50px 0px;
+}
+
+.imageDisplay{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	gap: 0px 70px;
+}
+.imageOption{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 20px 0px;
+	width: 100px;
+}
+.imageOption img{
+	width: 70px;
+	height: 70px;
+	box-sizing: content-box;
+	border: 1px solid var(--third-text);
+	border-radius: 5px;
+	cursor: pointer;
+}
+.imageMain{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.imageMain img{
+	width: 244px;
+	height: 244px;
+	box-sizing: content-box;
+	border: 1px solid var(--third-text);
+	border-radius: 5px;
+}
+
+@media (max-width: 900px){
+	.imageDisplay{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 0px 0px;
+	}
+	.imageOption{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 0px 20px;
+		width: 100px;
+	}
+	.imageOption img{
+		width: 60px;
+		height: 60px;
+		cursor: pointer;
+	}
+	.imageMain{
+		padding: 0px 0px 40px 0px;
+	}
+}
+
+.imageUploadContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 0px 20px;
+	width: 100%;
+	margin: 40px auto;
+}
+.imageUploadContainer p{
+	font-size: 20px;
+	color: var(--secondary-text);
+	text-align: center;
+	width: 300px;
+}
+.imageUploadContainer input{
+	font-size: 15px;
+	color: var(--secondary-text);
+	width: 200px;
+}
+
+
+@media (max-width: 900px){
+	.imageUploadContainer{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 20px 0px;
+		width: 300px;
+	}
+}

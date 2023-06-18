@@ -1,0 +1,23 @@
+.headerContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 0px 20px;
+	width: 100%;
+	padding: 20px 0px;
+}
+.headerContainer img{
+	width: 30px;
+	height: 30px;
+}
+.headerContainer h1{
+	font-size: 30px;
+	font-weight: 500;
+}
+
+@media (max-width: 900px){
+	.headerContainer{
+		justify-content: center;
+	}
+}
