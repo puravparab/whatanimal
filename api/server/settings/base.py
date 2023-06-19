@@ -150,6 +150,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = Path(BASE_DIR, 'staticfiles')
 
+# MODELS
+CNN_V1 = BASE_DIR/ 'models' / 'cnn_v1.h5'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

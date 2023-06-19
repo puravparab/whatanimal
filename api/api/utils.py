@@ -34,3 +34,10 @@ def update_request_status(request_id, status):
 	request.status = status
 	request.save(update_fields=['status'])
 	return
+
+def update_request(request_id, status, response_time):
+	request = PredictionRequest.objects.get(id=request_id)
+	request.status = status
+	request.time = response_time
+	request.save(update_fields=['status', 'time'])
+	return
