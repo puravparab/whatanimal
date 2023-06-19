@@ -51,7 +51,10 @@ INSTALLED_APPS = [
 	# django-rest-framework
 	'rest_framework',
 	# django-storage
-	"storages"
+	# "storages"
+
+	# API
+	'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
@@ -125,6 +128,7 @@ CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS").split(' ')
 
 CORS_ALLOW_METHODS = [
 	'GET',
+	'POST'
 ]
 
 
