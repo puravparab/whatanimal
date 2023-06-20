@@ -2,6 +2,13 @@ from .models import PredictionRequest
 from .serializer import PredictionRequestSerializer
 
 """
+Creates a request entry in PredictionRequest table
+
+Args:
+	image (file): An image file
+
+Returns:
+	int: id of the created entry if successful, else None.
 """
 def create_prediction_request(image):
 	try:
@@ -16,6 +23,13 @@ def create_prediction_request(image):
 		return None
 
 """
+Get the s3 url of the image in the request entry
+
+Args:
+	request_id (int): The id of the request.
+
+Returns:
+	str: The url of the image associated with the request
 """
 def get_image_url(request_id):
 	request = PredictionRequest.objects.filter(id=request_id)
@@ -28,6 +42,14 @@ def get_image_url(request_id):
 	return image_url
 
 """
+Update the status of the specified request.
+
+Args:
+	request_id (int): The id of the request.
+	status (str): The new status
+
+Returns:
+	None
 """
 def update_request_status(request_id, status):
 	request = PredictionRequest.objects.get(id=request_id)
@@ -35,6 +57,17 @@ def update_request_status(request_id, status):
 	request.save(update_fields=['status'])
 	return
 
+"""
+Update the status and inference time of the specified request.
+
+Args:
+	request_id (int): The id of the request.
+	status (str): The new status
+	response_time (float): The inference time
+
+Returns:
+	None
+"""
 def update_request(request_id, status, response_time):
 	request = PredictionRequest.objects.get(id=request_id)
 	request.status = status

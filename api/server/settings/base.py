@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 	# "storages"
 
 	# API
-	'api.apps.ApiConfig'
+	'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
