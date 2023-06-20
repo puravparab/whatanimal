@@ -79,15 +79,19 @@ const Image = () => {
 		setData('')
 		setResultMessage("Running inference ...")
 		const url = publicRuntimeConfig.SERVER_URL + "/api/predict?model=" + model
-		const res = await fetch(url, {
-			method: 'POST',
-			body: formData
-		})
+		try{
+			const res = await fetch(url, {
+				method: 'POST',
+				body: formData
+			})
 
-		if (res.ok){
-			const data = await res.json()
-			setData(data)
-		} else{
+			if (res.ok){
+				const data = await res.json()
+				setData(data)
+			} else{
+				setResultMessage("Inference failed! (Try again)")
+			}
+		} catch (err){
 			setResultMessage("Inference failed! (Try again)")
 		}
 	}
