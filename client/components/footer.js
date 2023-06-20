@@ -3,7 +3,7 @@ import styles from '../styles/footer.module.css'
 
 const footer = () => {
 	return (
-		<diV className={styles.footerContainer}>
+		<div className={styles.footerContainer}>
 			<a href="https://github.com/puravparab/whatanimal" target="_blank">
 				<img width="35" height="35" src="/assets/images/github.svg" alt="github"/>
 			</a>
@@ -11,7 +11,7 @@ const footer = () => {
 			<Link href='/about'>
 				about
 			</Link>
-		</diV>
+		</div>
 	)
 }
 

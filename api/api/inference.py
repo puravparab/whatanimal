@@ -86,7 +86,7 @@ def cnn_v1(image_url):
 		value = tf.get_static_value(predictions_array[i]) * 100
 		value = float("{:.2f}".format(value))
 		if value > 0:
-			prediction["scores"].append({i: value})
+			prediction["scores"].append([i, value])
 			no_of_classes += 1
 	prediction["no_of_classes"] = no_of_classes
 
