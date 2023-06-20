@@ -1,0 +1,25 @@
+.pageContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	min-height: 100%;
+	margin: 0px auto;
+	background: var(--bg-color);
+}
+
+@media (max-width: 900px){
+	.pageContainer{
+		width: 100%;
+	}
+}
+
+.pageBodyLayout{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 2500px;
+	width: 100%;
+}

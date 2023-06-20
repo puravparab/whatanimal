@@ -1,0 +1,218 @@
+/* IMAGE DISPLAY */
+.imageContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	padding: 50px 0px;
+}
+
+.imageDisplay{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	gap: 0px 70px;
+}
+.imageOption{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 20px 0px;
+	width: 100px;
+}
+.imageOption img{
+	width: 70px;
+	height: 70px;
+	box-sizing: content-box;
+	border: 1px solid var(--third-text);
+	border-radius: 5px;
+	cursor: pointer;
+}
+.imageMain{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.imageMain img{
+	width: 224px;
+	height: 224px;
+	box-sizing: content-box;
+	border: 1px solid var(--third-text);
+	border-radius: 5px;
+}
+
+@media (max-width: 900px){
+	.imageContainer{
+		padding: 20px 0px;
+	}
+	.imageDisplay{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 0px 0px;
+	}
+	.imageOption{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 0px 20px;
+		width: 100px;
+	}
+	.imageOption img{
+		width: 60px;
+		height: 60px;
+		cursor: pointer;
+	}
+	.imageMain{
+		padding: 0px 0px 40px 0px;
+	}
+}
+
+/* IMAGE UPLOAD */
+
+.imageUploadContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0px 20px;
+	width: 500px;
+	margin: 40px auto 20px auto;
+}
+.imageUploadContainer p{
+	font-size: 20px;
+	color: var(--secondary-text);
+	text-align: center;
+	width: 300px;
+}
+.imageUploadContainer input{
+	font-size: 15px;
+	color: var(--secondary-text);
+	width: 200px;
+}
+
+@media (max-width: 900px){
+	.imageUploadContainer{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 20px 0px;
+		width: 300px;
+		margin: 20px auto;
+	}
+}
+
+.modelOptions{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0px 20px;
+	margin: 0px auto;
+	width: 500px;
+}
+.modelOptions p{
+	font-size: 20px;
+	color: var(--secondary-text);
+	text-align: center;
+}
+.modelOptionsItemContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.modelOptionsItemContainer span{
+	font-size: 20px;
+	color: var(--special-text);
+	cursor: pointer;
+}
+
+@media (max-width: 900px){
+	.modelOptions{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 5px 0px;
+		width: 300px;
+	}
+}
+
+/* IMAGE PREDICT BUTTON */
+.imageContainer .submitBtn{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0px 0px 0px;
+}
+.imageContainer .submitBtn button{
+	padding: 12px 15px;
+	outline: none;
+	border: none;
+	border-radius: 15px;
+	background: var(--btn-primary);
+	border: 1px solid var(--btn-primary);
+	cursor: pointer;
+}
+.imageContainer .submitBtn button:hover{
+	transition: 0.2s;
+	background: var(--bg-color);
+}
+.imageContainer .submitBtn button span{
+	font-size: 25px;
+	font-weight: 500;
+	color: white;
+}
+
+/* PREDICTION RESULT */
+.resultContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0px 20px;
+	width: 500px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 30px 0px;
+	border-bottom: 1px solid grey;
+}
+.resultContainer p{
+	font-size: 23px;
+	font-weight: 500;
+	width: 100%;
+	text-align: center;
+	margin: 0px 0px 10px 0px;
+}
+.predictionItem{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px 0px 5px 0px;
+	width: 100%;
+	max-width: 350px;
+}
+.predictionItem p{
+	font-size: 18px;
+	font-weight: 300;
+	width: 100%;
+	text-align: start;
+	margin: 0px;
+}
+@media (max-width: 900px){
+	.resultContainer{
+		gap: 10px 0px;
+		width: 90%;
+		max-width: 500px;
+		margin: 0px auto;
+		padding: 20px 0px;
+	}
+}

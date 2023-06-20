@@ -1,0 +1,29 @@
+.aboutContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 50px 0px;
+	width: 500px;
+}
+.aboutContainer h2{
+	color: var(--special-text);
+	font-size: 25px;
+	font-weight: 500;
+	padding: 0px 0px 10px 0px;
+}
+.aboutContainer p{
+	font-size: 22px;
+	font-weight: 300;
+	padding: 10px 0px 10px 0px;
+}
+.aboutContainer a{
+	color: var(--special-text);
+}
+
+@media (max-width: 900px){
+	.aboutContainer{
+		padding: 20px 30px;
+		width: 100%;
+	}
+}

@@ -1,0 +1,23 @@
+# Exclude Node.js development files and directories
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Exclude Next.js build output
+.next
+
+# Exclude environment files
+.env*
+
+# Exclude version control files and directories
+.git
+.gitignore
+
+# Exclude editor-specific files and directories
+.vscode
+.idea
+
+# Exclude build and cache directories
+out
+.cache
+dist

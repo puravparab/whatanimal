@@ -1,0 +1,44 @@
+:root {
+	--bg-color: rgb(43, 51, 83);
+	--primary-text: rgb(255, 255, 255);
+	--secondary-text: rgb(189, 189, 189);
+	--third-text: rgb(121, 121, 121);
+	--special-text: rgb(255, 204, 77);
+	--btn-primary: rgb(99, 111, 199);
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	scroll-behavior: smooth !important;
+	height: 100%;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	color: var(--primary-text);
+}
+
+p{
+	margin: 0px;
+	color: var(--primary-text);
+}
+
+h1,h2,h3,h4,h5,h6{
+	margin: 0px;
+	color: var(--primary-text);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+#__next {
+	height: 100%;
+}

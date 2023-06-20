@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+python-dotenv = "*"
+whitenoise = "*"
+djangorestframework = "*"
+tensorflow-cpu = "*"
+h5py = "*"
+pillow = "*"
+boto3 = "*"
+django-storages = "*"
+django = "==4.2.2"
+django-cors-headers = "*"
+gunicorn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
