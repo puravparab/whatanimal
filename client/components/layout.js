@@ -7,9 +7,7 @@ import styles from '../styles/layout.module.css'
 
 const Layout = ({ children }) => {
 	return (
-		<>
-			<AnalyticsWrapper />
-			
+		<>			
 			<div className={styles.pageContainer}>
 				<Header />
 				<div className={styles.pageBodyLayout}>
@@ -17,6 +15,8 @@ const Layout = ({ children }) => {
 				</div>
 				<Footer />
 			</div>
+
+			<AnalyticsWrapper />
 		</>
 	)
 }
