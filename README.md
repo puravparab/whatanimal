@@ -7,7 +7,7 @@
 		WHATANIMAL
 	</h1>
 	<p align="center">
-	    Post an image of an animal and the whatanmal will predict its name
+		Image recognition web app that guesses animals from uploaded images using CNNs
 	</p
 </p>
 
@@ -17,6 +17,8 @@
 </p>
 
 <p align="center">
+	<a href="#Requirements">REQUIREMENTS</a>
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 	<a href="#Installation">INSTALLATION</a>
 	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 	<a href="#License">LICENSE</a>
@@ -24,93 +26,102 @@
 	<a href="https://github.com/puravparab/animal_classifier">Model</a>
 </p>
 
+# Requirements:
+
+- `python 3.10`
+- `node v18.16.0`
+- `npm 9.5.1`
+- `tensorflow`
+- `AWS S3`
+
+---
+
 # Installation:
 
 Clone the respository
 ```
 git clone https://github.com/puravparab/whatanimal.git
-```
-Change the working directory to Whatanimal
-```
 cd whatanimal
 ```
-Install pipenv to your machine
+
+## Using Docker Compose
+Run docker compose to run the application
 ```
+docker compose up --build
+// or run in detached mode
+docker compose up --build -d
+```
+Stop running application
+```
+docker compose down
+```
+
+---
+
+## Without Docker Compose
+
+### 1. API only
+#### - (Without Docker):
+
+Run virtual environment using pipenv
+```
+cd api
 pip install --user pipenv
-```
-Run the virtual environment
-```
 pipenv shell
-```
-Install dependencies from Pipfile
-```
 pipenv sync
 ```
-Create a file called .env and copy contents from .env.template into it.
-<br>
-Update the entries in the .env file.
-```
-SECRET_KEY= <create a secret key>
-DEBUG=True
-DJANGO_SETTINGS_MODULE=server.settings.dev
-ALLOWED_HOSTS=localhost 127.0.0.1
+Rename .env.template to .env and enter your credentials
 
-<Add your AWS keys>
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_STORAGE_BUCKET_NAME=
-AWS_S3_FILE_OVERWRITE=False
-```
 Run the following commands
+(You might have to restart the virtual environment to load the env variables)
 ```
-python server/manage.py migrate
-python server/manage.py collectstatic
+python manage.py collectstatic
+python manage.py migrate
 ```
-This completes the backend/server configuration.
+Run the server at http://127.0.0.1:8000 or http://localhost:8000
+```
+python manage.py runserver 0.0.0.0:8000
+```
+
+#### - (With Docker):
+
+Create Image
+```
+cd api
+docker build -t whatanimal-api .
+```
+Create and run container
+```
+docker run --env-file .env -p 8000:8000 whatanimal-api
+```
 
 ---
 
-For the next steps make sure node.js is and npm is installed.
-<br>
-You should have at least the following versions if node and npm ae installed.
-```
-node -v
-v16.13.1
+### 2. Client only
+#### - (Without Docker):
 
-npm -v
-v8.1.2
+Install dependencies
 ```
-Install dependencies from package.json
-```
+cd client
 npm ci
 ```
-Run the following command to create a production build
+Run client
 ```
-npm run build
-```
-This completes the frontend/client configuration.
-
----
-
-Add a superuser to Django Admin
-```
-python server/manage.py createsuperuser
-```
-Run the server at http://127.0.0.1:8000 or http://localhost:3000
-```
-python server/manage.py runserver
+npm run dev
 ```
 
----
-Create a default entry in the PredictionRequests model thorugh the admin panel
-<br>
-Go to the following url:
-<Your Domain>/admin/model/predictionrequests/add/
+#### - (With Docker):
+
+Create Image
 ```
-Add the following into the form:
-User Token = default
-Image = <upload image located at 'src/assets/images/default_cat.jpg'>
+cd api
+docker build -t whatanimal-api .
 ```
+Create and run container
+```
+docker run --env-file .env -p 8000:8000 whatanimal-api
+```
+
 
 ---
 
@@ -118,7 +129,7 @@ Image = <upload image located at 'src/assets/images/default_cat.jpg'>
 
 MIT License
 
-Copyright (c) 2022 WHATANIMAL
+Copyright (c) 2023 WHATANIMAL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
